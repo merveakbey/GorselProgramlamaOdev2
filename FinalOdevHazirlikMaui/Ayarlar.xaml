@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalOdevHazirlikMaui.Ayarlar"
+             Title="Ayarlar"
+             BackgroundColor="Black">
+
+    <StackLayout Padding="20" Spacing="20">
+        <!-- Başlık -->
+        <Label Text="Koyu Tema"
+               FontSize="18"
+               FontAttributes="Bold"
+               TextColor="White"
+               HorizontalOptions="Start"
+               VerticalOptions="Center" />
+
+        <!-- Switch -->
+        <Switch Toggled="Switch_Toggled"
+                ThumbColor="White"
+                OnColor="#4CAF50"
+                HorizontalOptions="End"
+                VerticalOptions="Center" />
+    </StackLayout>
+</ContentPage>

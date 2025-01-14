@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalOdevHazirlikMaui.Kurlar"
+             Title="Kurlar"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,Auto">
+            <Label Grid.Row="0" Text="Güncel Döviz Kurları" 
+                   TextColor="{AppThemeBinding Light={StaticResource MainTextColor}, Dark={StaticResource White}}" 
+                   FontSize="Large" Margin="20" HorizontalTextAlignment="Center" 
+                   FontAttributes="Bold"/>
+
+            <CollectionView Grid.Row="1" x:Name="dovizliste" Margin="20" BackgroundColor="White">
+                <CollectionView.Header>
+                    <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="Auto" BackgroundColor="#F5F5F5" Padding="10">
+                        <Label Text="Döviz Adı" Grid.Column="0" FontAttributes="Bold" FontSize="Medium" TextColor="#333"/>
+                        <Label Text="Alış Fiyatı" Grid.Column="1" FontAttributes="Bold" FontSize="Medium" TextColor="#333"/>
+                        <Label Text="Satış Fiyatı" Grid.Column="2" FontAttributes="Bold" FontSize="Medium" TextColor="#333"/>
+                        <Label Text="Fark" Grid.Column="3" FontAttributes="Bold" FontSize="Medium" TextColor="#333"/>
+                    </Grid>
+                </CollectionView.Header>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#DADADA" CornerRadius="5" Margin="0,5,0,5" Padding="10" BackgroundColor="#FFF">
+                            <Grid ColumnDefinitions="*,*,*,*" Padding="5">
+                                <Label Grid.Column="0" Text="{Binding Name}" FontSize="18" TextColor="#555"/>
+                                <Label Grid.Column="1" Text="{Binding Alis}" FontSize="18" TextColor="#555"/>
+                                <Label Grid.Column="2" Text="{Binding Satis}" FontSize="18" TextColor="#555"/>
+                                <Label Grid.Column="3" Text="{Binding Degisim}" FontSize="18" TextColor="#555"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <ImageButton Grid.Row="2" 
+                         Source="refresh.png" 
+                         Margin="20" 
+                         Clicked="Button_Clicked"  
+                         BackgroundColor="Transparent"
+                         HeightRequest="50" 
+                         WidthRequest="50" 
+                         HorizontalOptions="Center"/>
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalOdevHazirlikMaui.HavaDurumu"
+             Title="Hava Durumu"
+             BackgroundColor="#2C2F33">
+
+    <StackLayout Padding="20" Spacing="20">
+        <!-- Üstteki Boşluk -->
+        <BoxView HeightRequest="40" BackgroundColor="Transparent"/>
+
+        <!-- Başlık -->
+        <Label Text="Hava Durumu" 
+               FontSize="32" 
+               HorizontalOptions="Center" 
+               TextColor="White" 
+               FontAttributes="Bold"/>
+
+        <!-- Şehir Giriş Alanı -->
+        <Border
+            BackgroundColor="#3A3F44" 
+            Stroke="#586069"
+            StrokeShape="RoundRectangle 20,20,20,20"
+            StrokeThickness="1"
+            Padding="10">
+
+            <Entry x:Name="textBox" 
+                   Placeholder="Şehir adı giriniz" 
+                   PlaceholderColor="#B9BBBE"
+                   TextColor="White"
+                   FontSize="16"
+                   Margin="10,0"/>
+        </Border>
+
+        <!-- Ekle Butonu -->
+        <Button Text="Ekle" 
+                Clicked="Button_Clicked"
+                BackgroundColor="#7289DA"
+                TextColor="White"
+                CornerRadius="15"
+                Padding="10"
+                FontSize="18"
+                FontAttributes="Bold"/>
+
+        <!-- Dinamik İçerik -->
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="imageStackLayout" 
+                         VerticalOptions="StartAndExpand" 
+                         HorizontalOptions="FillAndExpand" 
+                         Spacing="15"
+                         Padding="10,0">
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

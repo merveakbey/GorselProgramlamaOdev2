@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalOdevHazirlikMaui.News"
+             Title="News"
+             BackgroundColor="White">
+
+    <RefreshView RefreshColor="#6E557C" Refreshing="LoadNews" x:Name="refreshView">
+
+        <Grid RowDefinitions="Auto,*" RowSpacing="20">
+
+            <!-- Kategori Seçim Alanı -->
+            <CollectionView x:Name="lstKategori" Grid.Row="0"
+                            SelectionChanged="lstKategori_SelectionChanged"
+                            SelectionMode="Single" HorizontalOptions="Center" VerticalOptions="Center">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border 
+                            BackgroundColor="Black"
+                            MinimumHeightRequest="50"
+                            MinimumWidthRequest="170"
+                            StrokeShape="RoundRectangle 20,10,10,20"
+                            StrokeThickness="2">
+
+                            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                                <Label Text="{Binding Baslik}" FontSize="Medium" TextColor="White"/>
+                            </StackLayout>
+
+                            <Border.Shadow>
+                                <Shadow
+                                    Opacity=".7"
+                                    Radius="7"
+                                    Offset="0,0"/>
+                            </Border.Shadow>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Haber Listeleme -->
+            <CollectionView x:Name="lstHaberler" Grid.Row="1"
+                            SelectionChanged="lstHaberler_SelectionChanged"
+                            SelectionMode="Single">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="20"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="30">
+                            <Border Padding="15" Margin="0,0,0,20"
+                                    BackgroundColor="White" 
+                                    Stroke="#311B45"
+                                    StrokeShape="RoundRectangle 20,20,20,20"
+                                    StrokeThickness="0.5">
+                                <Image Source="{Binding enclosure.link}" Aspect="AspectFill"/>
+                                <Border.Shadow>
+                                    <Shadow
+                                        Opacity=".7"
+                                        Radius="30"
+                                        Offset="0,0"/>
+                                </Border.Shadow>
+                            </Border>
+                            <Label Text="{Binding title}" VerticalOptions="Center" HorizontalOptions="Center"
+                                   TextColor="#311B45" FontSize="Large"
+                                   Margin="0,0,0,10"/>
+                            <HorizontalStackLayout >
+                                <Label Text="{Binding author}" 
+                                       TextColor="#6E557C"/>
+                                <Label Text="  |  " />
+                                <Label Text="{Binding pubDate}"
+                                       TextColor="#6E557C"/>
+                            </HorizontalStackLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
+
+    </RefreshView>
+</ContentPage>

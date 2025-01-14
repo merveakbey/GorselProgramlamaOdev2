@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalOdevHazirlikMaui.Home"
+             BackgroundColor="#F0F0F5">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,40"
+            Spacing="25"
+            BackgroundColor="#F0F0F5">
+
+            <!-- Profil Görseli -->
+            <Border
+                BackgroundColor="#4A148C" 
+                HeightRequest="350"
+                WidthRequest="300"
+                Stroke="#7B1FA2"
+                StrokeShape="RoundRectangle 30,30,30,30"
+                StrokeThickness="4">
+                <Image Aspect="AspectFill" Source="merveakbey.jpg"/>
+                <Border.Shadow>
+                    <Shadow
+                        Brush="#D1C4E9"
+                        Opacity=".7"
+                        Radius="50"
+                        Offset="0,0"/>
+                </Border.Shadow>
+            </Border>
+            <Label/>
+            <!-- Profil Adı -->
+            <Label
+                Text="Merve Nur Akbey"
+                HorizontalOptions="Center"
+                FontSize="30"
+                FontAttributes="Bold"
+                TextColor="#311B45"/>
+
+            <Label/>
+            <!-- Üniversite Bilgisi -->
+            <Label
+                Text="Bartın Üniversitesi "
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                FontSize="30"
+                TextColor="#4A148C"/>
+            <Label
+                Text=" Bilgisayar Mühendisliği"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                FontSize="30"
+                TextColor="#4A148C"/>
+
+            <Label/>
+            <!-- Proje Bilgisi -->
+            <Label
+                Text="ÖDEV-3"
+                HorizontalTextAlignment="Center"
+                FontSize="25"
+                TextColor="#7B1FA2"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

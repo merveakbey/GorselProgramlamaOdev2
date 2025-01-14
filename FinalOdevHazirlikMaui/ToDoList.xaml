@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalOdevHazirlikMaui.ToDoList"
+             Title="ToDoList"
+             BackgroundColor="White">
+    <StackLayout>
+        <Grid RowDefinitions="Auto">
+            <Label Text="Yapılacaklar" Grid.Row="0"
+                   TextColor="Black"
+                   HorizontalTextAlignment="Center"
+                   FontSize="30"/>
+        </Grid>
+
+        <ScrollView Padding="10">
+            <CollectionView x:Name="toDoList" SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="4"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="Transparent">
+                            <Grid RowDefinitions="Auto"
+                                  ColumnDefinitions="0.1*, 0.7*, 0.1*, 0.1*">
+                                <CheckBox Grid.Row="0"
+                                          Grid.Column="0"
+                                          Color="Black"
+                                          IsChecked="{Binding IsCompleted, Mode=TwoWay}"/>
+
+                                <Label Grid.Row="0"
+                                       Grid.Column="1"
+                                       TextColor="Black"
+                                       Text="{Binding NoteContent}"
+                                       VerticalOptions="Center"
+                                       FontSize="16"
+                                       FontAttributes="None"/>
+
+                                <Button Grid.Row="0"
+                                        Grid.Column="2"
+                                        FontFamily="Icons2"
+                                        TextColor="Black"
+                                        Text="&#xe800;"
+                                        BackgroundColor="Transparent"
+                                        FontSize="16"
+                                        Clicked="Edit_Clicked"
+                                        CommandParameter="{Binding Id}"/>
+
+                                <Button Grid.Row="0"
+                                        Grid.Column="3"
+                                        FontFamily="Icons2"
+                                        TextColor="Black"
+                                        Text="&#xe801;"
+                                        BackgroundColor="Transparent"
+                                        FontSize="16"
+                                        Clicked="Delete_Clicked"
+                                        CommandParameter="{Binding Id}"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="End"
+                     VerticalOptions="End"
+                     Spacing="20">
+            <Button FontFamily="Icons2"
+                    TextColor="Black"
+                    Text="&#xe802;"
+                    BackgroundColor="Transparent"
+                    FontSize="25"
+                    Clicked="NoteAdd_Clicked"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
